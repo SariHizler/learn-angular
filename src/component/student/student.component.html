@@ -1,0 +1,13 @@
+<p>{{firstName}}</p>
+<p>{{lastName}}</p>
+<input type="text" [(ngModel)]="firstName">
+<button (click)="clickMe()" [disabled]="!firstName">click</button>
+
+
+<button (click)="loadUsers()">הצג משתמשים</button>
+
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}
+  </li>
+</ul>

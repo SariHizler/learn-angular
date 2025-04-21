@@ -1,0 +1,14 @@
+<ul class="user-list">
+  <li *ngFor="let user of users" class="user-card">
+    <div class="user-info" *ngIf="editingUserId !== user.id">
+      <span class="user-name">{{ user.name }}</span>
+      <span class="user-email">{{ user.email }}</span>
+    </div>
+    <form *ngIf="editingUserId === user.id" (ngSubmit)="save(user)">
+      <input type="text" [(ngModel)]="editedName" name="editedName" required>
+      <button type="submit" class="save-btn">שמירה</button>
+      <button type="button" (click)="cancel()" class="cancel-btn">ביטול</button>
+    </form>
+    <button *ngIf="editingUserId !== user.id" (click)="editUser(user)" class="edit-btn">ערוך</button>
+  </li>
+</ul>
